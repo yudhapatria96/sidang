@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block app_css %}
+<link rel="stylesheet" type="text/css"
+		href="{% static "blog/css/styles.css"%}"> 
+{% endblock app_css %}
+
+{% block header %}
+<h1 class="text-left" style="margin-top:200px">{{heading}}</h1>
+<p class="lead text-left">{{subheading}}</p>
+{% endblock header %}
+
+{% block contents %}
+    {{content}}
+
+  
+<ul class= "nav">
+
+            <li class="nav-item">
+                <a class="nav-link" href ="/blog" title="">All-post</a>
+            </li>   
+    {% for dataCategory in categories %}
+        
+            <li class="nav-item">
+                <a class="nav-link" href ="{% url "blog:category" dataCategory.category %}" title="">{{dataCategory.category}}</a>
+            </li>
+        
+    {% endfor %}
+</ul>
+
+    {% for post in posts %}
+        <a href = "/blog/post/{{post.slug}}" title="">
+            <h1>{{post.title}}</h1>
+        </a>
+            <p>{{post.waktu_posting}}</p>
+            <p>{{post.body|truncatechars:200}}</p>
+
+    {% endfor %}
+
+{% endblock contents %}

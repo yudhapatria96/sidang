@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+
+		{% include "snippets/styles.html"%}
+		
+	{% block app_css %}
+
+	{% endblock app_css %}
+
+	
+</head>
+<body>
+	
+        {% include "snippets/navbar.html"%}
+				{% include "snippets/sidebar-menu.html" %}
+<!-- 	
+				<div class="jumbotron jumbotron-fluid">
+					<div class="container text-white text-center">
+					 
+						 {% block header %}
+			
+						 {% endblock header %}
+					</div>
+				</div> -->
+
+		<div class="container mt-5" style="margin-top:-100px, width= 100%"
+		id="myBody" >
+			{% block contents %}
+
+            {% endblock contents %}
+		</div>
+
+
+	</div>
+	
+	    {% include "snippets/scripts.html"%}
+		
+		{% block jquery %}
+
+		{% endblock jquery %}
+</body>
+</html>

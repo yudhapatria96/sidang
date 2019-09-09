@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block contents %}
+{% if request.user.is_staff %}
+
+<form method="POST">
+    {% csrf_token %}
+   
+
+   
+            {{contact_form|crispy}}
+    
+    
+        
+        <button type="Submit" class="btn btn-primary">Submit</button>
+        <a href="{% url "inputdata:index" %}" role="button" class="btn btn-info">Kembali</a>
+
+</form>
+<br>
+        <h5 style="color:red">Tanda * wajib di isi, nilai 0 adalah angka default untuk mencegah kosongnya form</h5>
+        {% else %}
+        <div class='row'>
+
+                <div class='col-sm-1'></div>
+                <div class='col-sm-10'>        
+                        <h4 style='margin-left: 36px;'>Hanya User Yang Telah Terkonfirmasi Yang Dapat Mengakses Halaman Ini</h4>
+                        </div>
+
+        </div>
+        <br>
+        <br>
+        <div class='row'>
+
+                        <div class='col-sm-2'></div>
+                        <div class='col-sm-10'>        
+                        <h4 style='margin-left: 20px; color: red;'>Hubungi Administrator Untuk Mengkonfirmasi Akun Anda</h4>
+                        </div>
+                        
+                </div>
+                <br>
+                <br>
+                <div class='row'>
+
+                                <div class='col-sm-5'></div>
+                                <div class='col-sm-7'>        
+                                <a href="{% url "index"%}" style='margin-left: 20px; font-size:26px'>Kembali</a>
+                                </div>
+                                
+                        </div>
+        {% endif %}
+
+        {% endblock contents %}
+
+   
+
+		 <!-- <div class="form-group">
+        {{data_form.tanggal_field.label_tag}}
+        {{data_form.bulan_transaksi}}
+       
+    </div>
+
+    <div class="form-group">
+            {{data_form.hotel_field.label_tag}}
+            {{data_form.hotel_field}}         
+    </div>
+
+    <div class="form-group">
+            {{data_form.mall_field.label_tag}}
+            {{data_form.mall_field}}         
+    </div>
+
+    <div class="form-group">
+            {{data_form.apartement_field.label_tag}}
+            {{data_form.apartement_field}}         
+    </div>
+
+    <div class="form-group">
+            {{data_form.c441_field.label_tag}}
+            {{data_form.c441_field}}         
+    </div>
+
+    <div class="form-group">
+            {{data_form.c442_field.label_tag}}
+            {{data_form.c442_field}}         
+    </div>
+
+    
+    <div class="form-group">
+            {{data_form.c443_field.label_tag}}
+            {{data_form.c443_field }}         
+    </div>
+
+    <div class="form-group">
+            {{data_form.c451_field.label_tag}}
+            {{data_form.c451_field}}         
+    </div>
+
+    <div class="form-group">
+            {{data_form.c452_field.label_tag}}
+            {{data_form.c452_field}}         
+    </div>
+
+    <div class="form-group">
+            {{data_form.c453_field.label_tag}}
+            {{data_form.c453_field}}         
+    </div>
+
+    <div class="form-group">
+            {{data_form.c461_field.label_tag}}
+            {{data_form.c461_field}}         
+    </div>
+
+    <div class="form-group">
+            {{data_form.c462_field.label_tag}}
+            {{data_form.c462_field}}         
+    </div>
+
+    <div class="form-group">
+            {{data_form.c463_field.label_tag}}
+            {{data_form.c463_field}}         
+    </div>
+
+    <div class="form-group">
+            {{data_form.pembersih_air_field.label_tag}}
+            {{data_form.pembersih_air_field}}         
+    </div>
+    <div class="form-group">
+            {{data_form.pembersih_kerak_field.label_tag}}
+            {{data_form.pembersih_kerak_field}}         
+    </div>
+
+    <div class="form-group">
+            {{data_form.pembesih_cooling_tower_field.label_tag}}
+            {{data_form.pembesih_cooling_tower_field}}         
+    </div>
+
+    <div class="form-group">
+            {{data_form.pembersih_stp_field.label_tag}}
+            {{data_form.pembersih_stp_field}}         
+    </div>
+
+    <div class="form-group">
+        {{data_form.asam_sulfat_field.label_tag}}
+        {{data_form.asam_sulfat_field}}         
+    </div>
+
+    <div class="form-group">
+        {{data_form.molases_field.label_tag}}
+        {{data_form.molases_field}}         
+    </div>
+
+    <div class="form-group">
+        {{data_form.hcl_field.label_tag}}
+        {{data_form.hcl_field}}         
+    </div>
+
+    <div class="form-group">
+        {{data_form.abf_field.label_tag}}
+        {{data_form.abf_field}}         
+    </div> -->
